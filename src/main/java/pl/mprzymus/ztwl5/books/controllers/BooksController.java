@@ -33,7 +33,7 @@ public class BooksController {
     @PutMapping("/{id}")
     public BookDto updateBook(@RequestBody BookDto book, @PathVariable Integer id) {
         var toSave = new BookDto(id, book.tittle(), book.author(), book.pages());
-        return bookService.updateBook(book);
+        return bookService.updateBook(toSave);
     }
 
     @DeleteMapping("/{id}")

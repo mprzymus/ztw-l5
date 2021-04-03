@@ -8,6 +8,7 @@ import pl.mprzymus.ztwl5.authors.model.AuthorListDto;
 import pl.mprzymus.ztwl5.authors.repositories.AuthorRepository;
 import pl.mprzymus.ztwl5.errors.AuthorNotFoundException;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -60,6 +61,14 @@ public class AuthorServiceJpa implements AuthorService {
         authorDb.setFirstName(author.firstName());
         authorDb.setLastName(author.lastName());
         return AuthorConverter.AuthorToAuthorDto(authorRepository.save(authorDb));
+    }
+
+    @Override
+    public Optional<Author> findById(Integer id) {
+        if (id == null) {
+            return Optional.empty();
+        }
+        return authorRepository.findById(id);
     }
 
     @Override

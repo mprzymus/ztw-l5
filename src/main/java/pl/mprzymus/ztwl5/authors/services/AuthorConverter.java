@@ -12,6 +12,7 @@ public class AuthorConverter {
     public static BookAuthorDto authorToBookAuthorDto(Author author) {
         return new BookAuthorDto(author.getId(), author.getFirstName(), author.getLastName());
     }
+
     public static AuthorDto AuthorToAuthorDto(Author author) {
         var books = author.getBooks().stream()
                 .map(AuthorConverter::bookToAuthorsBookDto)
@@ -25,6 +26,11 @@ public class AuthorConverter {
     }
 
     public static Book authorsBookDtoToBook(AuthorsBookDto authorsBookDto, Author author) {
-        return new Book(authorsBookDto.id(), authorsBookDto.tittle(), author, authorsBookDto.pages());
+        return Book.builder()
+                .id(authorsBookDto.id())
+                .tittle(authorsBookDto.tittle())
+                .author(author)
+                .pages(authorsBookDto.pages())
+                .build();
     }
 }

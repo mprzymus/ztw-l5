@@ -27,9 +27,9 @@ public class Bootstrap implements CommandLineRunner {
         var author3 = new Author(null, "Adam", "Mickiewicz", new HashSet<>());
 
         log.info("Adding default objects");
-        var book1 = new Book(null, "Potop", author1, 936);
-        var book2 = new Book(null, "Wesele", author2, 150);
-        var book3 = new Book(null, "Dziady", author3, 292);
+        var book1 = Book.builder().tittle("Potop").author(author1).pages(936).build();
+        var book2 = Book.builder().tittle("Wesele").author(author2).pages(150).build();
+        var book3 = Book.builder().tittle("Dziady").author(author3).pages(292).build();
 
         author1.getBooks().add(book1);
         author2.getBooks().add(book2);

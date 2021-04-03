@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.mprzymus.ztwl5.authors.model.Author;
 import pl.mprzymus.ztwl5.authors.repositories.AuthorRepository;
+import pl.mprzymus.ztwl5.authors.services.AuthorService;
 import pl.mprzymus.ztwl5.books.model.Book;
 import pl.mprzymus.ztwl5.errors.AuthorNotFoundException;
 import pl.mprzymus.ztwl5.errors.BookNotFoundException;
@@ -25,6 +26,7 @@ public class BookServiceJpa implements BookService {
 
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
+    private final AuthorService authorService;
 
     @Override
     public BookListDto getBooks() {
@@ -68,8 +70,6 @@ public class BookServiceJpa implements BookService {
         if (isSameAuthor(requestedBook, bookDb)) {
             updateBookData(requestedBook, bookDb);
             var authorDb = bookDb.getAuthor();
-            authorDb.setFirstName(requestedBook.author().firstName());
-            authorDb.setLastName(requestedBook.author().lastName());
             log.info("Updated book: {}, author: {}", bookDb.getId(), authorDb.getId());
             authorRepository.save(authorDb);
         } else {
@@ -101,7 +101,7 @@ public class BookServiceJpa implements BookService {
         var book = new Book();
         book.setTittle(requestedBook.tittle());
         book.setPages(requestedBook.pages());
-        var authorOptional = authorRepository.findById(requestedBook.author().id());
+        var authorOptional = authorService.findById(requestedBook.author().id());
         Author author;
         if (authorOptional.isPresent()) {
             author = authorOptional.get();
