@@ -1,8 +1,6 @@
 package pl.mprzymus.ztwl5.books.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.mprzymus.ztwl5.authors.Author;
 
 import javax.persistence.*;
@@ -10,7 +8,9 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@Entity
 public class Book implements Serializable {
 
     @Id
@@ -19,6 +19,7 @@ public class Book implements Serializable {
     private String tittle;
 
     @ManyToOne
+    @JoinColumn(name = "author_id")
     private Author author;
 
     private int pages;

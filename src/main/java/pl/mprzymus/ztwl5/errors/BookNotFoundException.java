@@ -1,4 +1,4 @@
-package pl.mprzymus.ztwl5.books;
+package pl.mprzymus.ztwl5.errors;
 
 import java.util.NoSuchElementException;
 

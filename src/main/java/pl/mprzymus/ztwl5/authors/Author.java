@@ -1,17 +1,17 @@
 package pl.mprzymus.ztwl5.authors;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.mprzymus.ztwl5.books.model.Book;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +20,6 @@ public class Author {
     private String firstName;
     private String lastName;
 
-    @OneToMany
-    private Set<Book> books;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+    private Set<Book> books = new HashSet<>();
 }

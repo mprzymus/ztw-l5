@@ -1,8 +1,7 @@
-package pl.mprzymus.ztwl5.books.model;
+package pl.mprzymus.ztwl5.authors;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-import java.util.List;
-
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY) //annotation required for records
-public record BookListDto(List<BookDto> books){}
+public record BookAuthorDto(Integer id, String firstName, String lastName) {
+}
