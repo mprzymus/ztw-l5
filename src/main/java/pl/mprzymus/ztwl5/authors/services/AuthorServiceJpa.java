@@ -1,7 +1,11 @@
-package pl.mprzymus.ztwl5.authors;
+package pl.mprzymus.ztwl5.authors.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.mprzymus.ztwl5.authors.model.Author;
+import pl.mprzymus.ztwl5.authors.model.AuthorDto;
+import pl.mprzymus.ztwl5.authors.model.AuthorListDto;
+import pl.mprzymus.ztwl5.authors.repositories.AuthorRepository;
 import pl.mprzymus.ztwl5.errors.AuthorNotFoundException;
 
 import java.util.stream.Collectors;

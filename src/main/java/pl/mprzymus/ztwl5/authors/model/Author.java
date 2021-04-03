@@ -1,4 +1,4 @@
-package pl.mprzymus.ztwl5.authors;
+package pl.mprzymus.ztwl5.authors.model;
 
 import lombok.*;
 import pl.mprzymus.ztwl5.books.model.Book;

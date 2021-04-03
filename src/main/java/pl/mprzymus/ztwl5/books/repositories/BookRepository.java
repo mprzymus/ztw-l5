@@ -1,4 +1,4 @@
-package pl.mprzymus.ztwl5.books;
+package pl.mprzymus.ztwl5.books.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

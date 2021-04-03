@@ -1,5 +1,9 @@
-package pl.mprzymus.ztwl5.authors;
+package pl.mprzymus.ztwl5.authors.services;
 
+import pl.mprzymus.ztwl5.authors.model.Author;
+import pl.mprzymus.ztwl5.authors.model.AuthorDto;
+import pl.mprzymus.ztwl5.authors.model.AuthorsBookDto;
+import pl.mprzymus.ztwl5.authors.model.BookAuthorDto;
 import pl.mprzymus.ztwl5.books.model.Book;
 
 import java.util.stream.Collectors;

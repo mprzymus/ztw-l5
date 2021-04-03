@@ -1,6 +1,7 @@
-package pl.mprzymus.ztwl5.authors;
+package pl.mprzymus.ztwl5.authors.services;
 
-import pl.mprzymus.ztwl5.books.model.BookListDto;
+import pl.mprzymus.ztwl5.authors.model.AuthorDto;
+import pl.mprzymus.ztwl5.authors.model.AuthorListDto;
 
 public interface AuthorService {
     AuthorListDto getAuthors();

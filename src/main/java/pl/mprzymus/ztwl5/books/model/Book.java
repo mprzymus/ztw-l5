@@ -1,7 +1,7 @@
 package pl.mprzymus.ztwl5.books.model;
 
 import lombok.*;
-import pl.mprzymus.ztwl5.authors.Author;
+import pl.mprzymus.ztwl5.authors.model.Author;
 
 import javax.persistence.*;
 import java.io.Serializable;

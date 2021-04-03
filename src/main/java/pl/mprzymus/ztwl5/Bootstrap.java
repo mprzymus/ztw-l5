@@ -4,13 +4,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import pl.mprzymus.ztwl5.authors.Author;
-import pl.mprzymus.ztwl5.authors.AuthorRepository;
+import pl.mprzymus.ztwl5.authors.model.Author;
+import pl.mprzymus.ztwl5.authors.repositories.AuthorRepository;
 import pl.mprzymus.ztwl5.books.model.Book;
 import pl.mprzymus.ztwl5.books.services.BookService;
 
 import java.util.HashSet;
-import java.util.Set;
 
 @Component
 @Slf4j

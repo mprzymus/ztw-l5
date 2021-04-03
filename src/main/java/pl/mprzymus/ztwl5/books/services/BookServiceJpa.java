@@ -5,12 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.mprzymus.ztwl5.authors.Author;
-import pl.mprzymus.ztwl5.authors.AuthorRepository;
+import pl.mprzymus.ztwl5.authors.model.Author;
+import pl.mprzymus.ztwl5.authors.repositories.AuthorRepository;
 import pl.mprzymus.ztwl5.books.model.Book;
 import pl.mprzymus.ztwl5.errors.AuthorNotFoundException;
 import pl.mprzymus.ztwl5.errors.BookNotFoundException;
-import pl.mprzymus.ztwl5.books.BookRepository;
+import pl.mprzymus.ztwl5.books.repositories.BookRepository;
 import pl.mprzymus.ztwl5.books.model.BookDto;
 import pl.mprzymus.ztwl5.books.model.BookListDto;
 

@@ -1,6 +1,6 @@
 package pl.mprzymus.ztwl5.books.services;
 
-import pl.mprzymus.ztwl5.authors.AuthorConverter;
+import pl.mprzymus.ztwl5.authors.services.AuthorConverter;
 import pl.mprzymus.ztwl5.books.model.Book;
 import pl.mprzymus.ztwl5.books.model.BookDto;
 

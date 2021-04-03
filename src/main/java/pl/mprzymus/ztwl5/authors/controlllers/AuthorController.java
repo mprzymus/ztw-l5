@@ -1,11 +1,11 @@
-package pl.mprzymus.ztwl5.authors;
+package pl.mprzymus.ztwl5.authors.controlllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.mprzymus.ztwl5.authors.AuthorDto;
-import pl.mprzymus.ztwl5.authors.AuthorListDto;
-import pl.mprzymus.ztwl5.authors.AuthorService;
+import pl.mprzymus.ztwl5.authors.model.AuthorDto;
+import pl.mprzymus.ztwl5.authors.model.AuthorListDto;
+import pl.mprzymus.ztwl5.authors.services.AuthorService;
 
 @RequestMapping("/api/authors")
 @RestController

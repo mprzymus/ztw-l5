@@ -1,4 +1,4 @@
-package pl.mprzymus.ztwl5.authors;
+package pl.mprzymus.ztwl5.authors.model;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
