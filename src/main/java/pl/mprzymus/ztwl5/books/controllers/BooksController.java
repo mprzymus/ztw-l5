@@ -5,13 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.mprzymus.ztwl5.books.model.BookDto;
 import pl.mprzymus.ztwl5.books.model.BookListDto;
-import pl.mprzymus.ztwl5.books.services.BookService;
+import pl.mprzymus.ztwl5.books.services.BookCrudService;
 
 @RequestMapping("/api/books")
 @RestController
 @RequiredArgsConstructor
 public class BooksController {
-    private final BookService bookService;
+    private final BookCrudService bookService;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping

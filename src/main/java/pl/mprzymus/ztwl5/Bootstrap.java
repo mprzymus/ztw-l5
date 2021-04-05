@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import pl.mprzymus.ztwl5.authors.model.Author;
 import pl.mprzymus.ztwl5.authors.repositories.AuthorRepository;
 import pl.mprzymus.ztwl5.books.model.Book;
-import pl.mprzymus.ztwl5.books.services.BookService;
+import pl.mprzymus.ztwl5.books.services.BookCrudService;
 
 import java.util.HashSet;
 
@@ -16,7 +16,7 @@ import java.util.HashSet;
 @RequiredArgsConstructor
 public class Bootstrap implements CommandLineRunner {
 
-    private final BookService bookService;
+    private final BookCrudService bookService;
     private final AuthorRepository authorRepository;
 
     @Override

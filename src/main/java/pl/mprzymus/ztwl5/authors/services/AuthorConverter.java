@@ -13,13 +13,14 @@ public class AuthorConverter {
         return new BookAuthorDto(author.getId(), author.getFirstName(), author.getLastName());
     }
 
-    public static AuthorDto AuthorToAuthorDto(Author author) {
+    public static AuthorDto authorToAuthorDto(Author author) {
         var books = author.getBooks().stream()
                 .map(AuthorConverter::bookToAuthorsBookDto)
                 .collect(Collectors.toList());
         return new AuthorDto(author.getId(), author.getFirstName(), author.getLastName(), books);
-
     }
+
+
 
     public static AuthorsBookDto bookToAuthorsBookDto(Book book) {
         return new AuthorsBookDto(book.getId(), book.getTittle(), book.getPages());

@@ -21,7 +21,7 @@ public class AuthorServiceJpa implements AuthorService {
     public AuthorListDto getAuthors() {
         var authors = authorRepository.findAll()
                 .stream()
-                .map(AuthorConverter::AuthorToAuthorDto)
+                .map(AuthorConverter::authorToAuthorDto)
                 .collect(Collectors.toList());
         return new AuthorListDto(authors);
     }
@@ -29,7 +29,7 @@ public class AuthorServiceJpa implements AuthorService {
     @Override
     public AuthorDto getAuthor(int id) {
         Author author = tryGetAuthor(id);
-        return AuthorConverter.AuthorToAuthorDto(author);
+        return AuthorConverter.authorToAuthorDto(author);
     }
 
     private Author tryGetAuthor(int id) {
@@ -43,7 +43,7 @@ public class AuthorServiceJpa implements AuthorService {
         author.setLastName(authorDto.lastName());
         setBooks(authorDto, author);
         var saved = authorRepository.save(author);
-        return AuthorConverter.AuthorToAuthorDto(saved);
+        return AuthorConverter.authorToAuthorDto(saved);
     }
 
     private void setBooks(AuthorDto authorDto, Author author) {
@@ -60,7 +60,7 @@ public class AuthorServiceJpa implements AuthorService {
         var authorDb = tryGetAuthor(author.id());
         authorDb.setFirstName(author.firstName());
         authorDb.setLastName(author.lastName());
-        return AuthorConverter.AuthorToAuthorDto(authorRepository.save(authorDb));
+        return AuthorConverter.authorToAuthorDto(authorRepository.save(authorDb));
     }
 
     @Override
