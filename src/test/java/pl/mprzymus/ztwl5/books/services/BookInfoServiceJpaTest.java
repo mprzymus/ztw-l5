@@ -11,7 +11,7 @@ import pl.mprzymus.ztwl5.books.model.Book;
 import pl.mprzymus.ztwl5.books.repositories.BookRepository;
 import pl.mprzymus.ztwl5.errors.NoBooksToBorrowException;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
@@ -58,23 +58,23 @@ class BookInfoServiceJpaTest {
 
         BookBorrow b1 = createNewestBorrow.apply(book);
 
-        BookBorrow b2 = createNotReturnedBorrow(book, LocalDate.of(1999, 5, 2));
+        BookBorrow b2 = createNotReturnedBorrow(book, LocalDateTime.of(1999, 5, 2, 2, 2));
 
         book.setBorrowHistory(Set.of(b1, b2));
         return book;
     }
 
     private final Function<Book, BookBorrow> createNotReturnedBorrow = book ->
-        createNotReturnedBorrow(book, LocalDate.now());
+        createNotReturnedBorrow(book, LocalDateTime.now());
 
     private final Function<Book, BookBorrow> createReturnedBorrow = book -> {
-        var borrow = createNotReturnedBorrow(book, LocalDate.now());
-        borrow.setReturnDate(LocalDate.MAX);
+        var borrow = createNotReturnedBorrow(book, LocalDateTime.now());
+        borrow.setReturnDate(LocalDateTime.MAX);
         return borrow;
     };
 
 
-    private BookBorrow createNotReturnedBorrow(Book book, LocalDate now) {
+    private BookBorrow createNotReturnedBorrow(Book book, LocalDateTime now) {
         var b1 = new BookBorrow();
         b1.setBook(book);
         b1.setBorrowDate(now);

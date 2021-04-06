@@ -7,6 +7,7 @@ import pl.mprzymus.ztwl5.authors.model.Author;
 import pl.mprzymus.ztwl5.book_borrow.BorrowDateComparator;
 import pl.mprzymus.ztwl5.books.model.Book;
 import pl.mprzymus.ztwl5.books.repositories.BookRepository;
+import pl.mprzymus.ztwl5.errors.BookNotFoundException;
 import pl.mprzymus.ztwl5.errors.NoBooksToBorrowException;
 
 import java.util.List;

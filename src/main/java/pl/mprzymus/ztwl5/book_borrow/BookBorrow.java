@@ -8,6 +8,8 @@ import pl.mprzymus.ztwl5.books.model.Book;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @AllArgsConstructor
@@ -19,11 +21,24 @@ public class BookBorrow {
     @GeneratedValue
     private Integer id;
 
-    private LocalDate borrowDate;
+    private LocalDateTime borrowDate;
 
-    private LocalDate returnDate;
+    private LocalDateTime returnDate;
 
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookBorrow that = (BookBorrow) o;
+        return Objects.equals(id, that.id) && Objects.equals(borrowDate, that.borrowDate) && Objects.equals(returnDate, that.returnDate) && Objects.equals(book, that.book);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
