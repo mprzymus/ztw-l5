@@ -1,5 +1,6 @@
 package pl.mprzymus.ztwl5.books.services;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -7,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.mprzymus.ztwl5.authors.model.Author;
 import pl.mprzymus.ztwl5.book_borrow.BookBorrow;
+import pl.mprzymus.ztwl5.book_borrow.BorrowDateComparator;
 import pl.mprzymus.ztwl5.books.model.Book;
 import pl.mprzymus.ztwl5.books.repositories.BookRepository;
 import pl.mprzymus.ztwl5.errors.NoBooksToBorrowException;
@@ -25,11 +27,16 @@ import static org.mockito.Mockito.when;
 class BookInfoServiceJpaTest {
 
     public static final int ID = 1;
-    @InjectMocks
+
     private BookInfoServiceJpa bookInfoService;
 
     @Mock
     private BookRepository bookRepository;
+
+    @BeforeEach
+    void setUp() {
+        bookInfoService = new BookInfoServiceJpa(bookRepository, new BorrowDateComparator());
+    }
 
     @Test
     void bookIsNotBorrowedTest() {
