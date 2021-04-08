@@ -111,12 +111,7 @@ public class BookCrudServiceJpa implements BookCrudService {
         }
         book = bookRepository.save(book);
         book.setAuthor(author);
-        author = authorRepository.save(author);
-        var tittle = book.getTittle();
-        /*book = author.getBooks()
-                .stream().filter(ab -> ab.getTittle().equals(tittle))
-                .findAny()
-                .get();*/
+        authorRepository.save(author);
         return BookConverter.bookToDto(book);
     }
 
